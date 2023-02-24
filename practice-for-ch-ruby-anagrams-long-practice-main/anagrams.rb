@@ -43,3 +43,31 @@ print key
     key.empty?
 
 end
+
+## Phase III
+
+# Write a method `#third_anagram?` that solves the problem by sorting both strings
+# alphabetically. The strings are then anagrams if and only if the sorted versions
+# are identical.
+
+# What is the time complexity of this solution? Is it better or worse than
+# `#second_anagram?`?
+
+def phase3(str1, str2)
+    str1.split("").sort == str2.split("").sort
+end
+
+# ## Phase IV
+
+# Write one more method `#fourth_anagram?`. This time, use two hashes to store the
+# number of times each letter appears in both words. Compare the resulting hashes.
+
+# What is the time complexity?
+
+def phase4(str1, str2)
+    hash_1 = Hash.new(0)
+    hash_2 = Hash.new(0)
+    str1.each_char {|char| hash_1[char] += 1}
+    str2.each_char {|char| hash_2[char] += 1}
+    hash_1 == hash_2
+end
